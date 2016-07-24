@@ -121,7 +121,8 @@ class game:
 		'!change_sila': '' , 
 		'!change_lov': '' ,
 		'!change_oban': '' ,
-		'!help':''
+		'!help':'',
+		'!remove_item':''
 	}
 
 	def add_note(self,_input):
@@ -186,9 +187,14 @@ class game:
 			answ = ''
 			for com in self.inputs:
 				print (com)
+		elif (_input == '!remove_item'):
+			item_name = input("Введите название предмета: ")
+			self.remove_item(self.get_item(item_name))
 
 
-	def remove_item
+	def remove_item (self,item):
+		del(self.playa.inventory[item[0]])
+		print("Предмет удален")
 
 	def get_item(self,item_name):
 		if (item_name in self.playa.inventory):
